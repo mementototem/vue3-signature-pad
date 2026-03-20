@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.8.6
+
+[compare changes](https://github.com/selemondev/vue3-signature-pad/compare/v1.8.5...v1.8.6)
+
+### 🏡 Chore
+
+- Update pnpm install command ([fa747ad](https://github.com/selemondev/vue3-signature-pad/commit/fa747ad))
+
+### ❤️ Contributors
+
+- Selemondev <selemondev19@gmail.com>
+
 ## v1.8.5
 
 [compare changes](https://github.com/selemondev/vue3-signature-pad/compare/v1.8.4...v1.8.5)
