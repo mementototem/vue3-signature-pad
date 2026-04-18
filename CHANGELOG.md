@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v1.9.0
+
+[compare changes](https://github.com/selemondev/vue3-signature-pad/compare/v1.8.6...v1.9.0)
+
+### 🏡 Chore
+
+- Update release pnpm version and remove unused pkg dependencies ([f6bd158](https://github.com/selemondev/vue3-signature-pad/commit/f6bd158))
+- Add pkg keywords ([789da2b](https://github.com/selemondev/vue3-signature-pad/commit/789da2b))
+
+### ❤️ Contributors
+
+- Selemondev
+
 ## v1.8.6
 
 [compare changes](https://github.com/selemondev/vue3-signature-pad/compare/v1.8.5...v1.8.6)
