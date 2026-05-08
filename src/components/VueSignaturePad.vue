@@ -83,7 +83,8 @@ function addWaterMark(data: WaterMarkObj) {
 		};
 		const VCanvas = document.getElementById(
 			canvasOptions.value.canvasUuid,
-		) as HTMLCanvasElement;
+		) as HTMLCanvasElement | null;
+		if (!VCanvas) return;
 		const ctx = VCanvas.getContext("2d");
 		if (ctx) {
 			ctx.font = data.font || "20px sans-serif";
