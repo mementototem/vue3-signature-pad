@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import SignaturePad from "signature_pad";
+import { onBeforeUnmount, onMounted, ref, watch } from "vue";
 import type {
 	CanvasOptions,
 	Point,
@@ -6,8 +8,7 @@ import type {
 	Signature,
 	WaterMarkObj,
 } from "../types";
-import SignaturePad from "signature_pad";
-import { onBeforeUnmount, onMounted, ref, watch } from "vue";
+
 let canvas: HTMLCanvasElement;
 const props = withDefaults(defineProps<Props>(), {
 	throttle: 16,
@@ -58,7 +59,7 @@ function clearCanvas() {
 function fromDataURL(url: string) {
 	return canvasOptions.value.signaturePad.fromDataURL(url);
 }
-function toDataURL(type: string, ...options: any) {
+function toDataURL(type: string, ...options: unknown[]) {
 	return canvasOptions.value.signaturePad.toDataURL(type, ...options);
 }
 
@@ -234,9 +235,11 @@ onBeforeUnmount(() => {
 watch(
 	() => props,
 	(val) => {
-		canvasOptions.value.signaturePad.penColor = val.options?.penColor!;
+		canvasOptions.value.signaturePad.penColor =
+			val.options?.penColor ?? canvasOptions.value.penColor;
 		canvasOptions.value.signaturePad.backgroundColor =
-			val.options?.backgroundColor!;
+			val.options?.backgroundColor ??
+			canvasOptions.value.signaturePad.backgroundColor;
 		canvasOptions.value.signaturePad.minWidth = val.minWidth;
 		canvasOptions.value.signaturePad.maxWidth = val.maxWidth;
 	},

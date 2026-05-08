@@ -173,6 +173,12 @@ afterEach(() => {
 });
 
 describe("VueSignaturePad", () => {
+	it("re-exports the component from the package entry", async () => {
+		const entry = await import("../index");
+
+		expect(entry.VueSignaturePad).toBeDefined();
+	});
+
 	it("initializes the signature pad and proxies exposed methods", async () => {
 		const wrapper = await mountPad({
 			disabled: true,
