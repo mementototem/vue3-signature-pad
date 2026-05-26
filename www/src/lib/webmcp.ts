@@ -5,7 +5,13 @@ export function initializeWebMCP() {
 	if (typeof window === "undefined") return;
 
 	// Check if the browser supports WebMCP (Model Context Protocol)
-	if (!("modelContext" in navigator)) {
+	// Use proper type guard for experimental API
+	if (
+		!navigator ||
+		typeof navigator !== "object" ||
+		!("modelContext" in navigator) ||
+		typeof (navigator as any).modelContext !== "object"
+	) {
 		console.info(
 			"WebMCP not supported in this browser. This is normal for non-WebMCP enabled browsers.",
 		);
@@ -13,8 +19,13 @@ export function initializeWebMCP() {
 	}
 
 	try {
-		// @ts-ignore - navigator.modelContext is experimental
-		navigator.modelContext.provideContext({
+		const modelContext = (navigator as any).modelContext;
+		if (typeof modelContext.provideContext !== "function") {
+			console.info("WebMCP API not fully available");
+			return;
+		}
+
+		modelContext.provideContext({
 			tools: [
 				{
 					name: "get_package_info",
