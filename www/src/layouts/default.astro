@@ -18,13 +18,23 @@ import "../styles/global/base.css";
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
         />
-        <link rel="sitemap" href="/sitemap-index.xml" />
+        <link rel="sitemap" href="/sitemap.xml" />
         <meta name="generator" content={Astro.generator} />
         <meta
             name="description"
             content="A beautiful signature pad component for Vue 3."
         />
         <title>Signature Pad</title>
+        
+        <script>
+            import { initializeWebMCP } from "../lib/webmcp";
+            // Initialize WebMCP on page load
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initializeWebMCP);
+            } else {
+                initializeWebMCP();
+            }
+        </script>
     </head>
     <body>
         <div class="max-w-3xl mx-auto">
