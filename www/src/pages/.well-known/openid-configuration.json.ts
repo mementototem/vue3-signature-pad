@@ -1,12 +1,7 @@
 export const GET = () => {
 	const config = {
 		issuer: "https://vue3-signature-pad.vercel.app",
-		authorization_endpoint:
-			"https://vue3-signature-pad.vercel.app/.well-known/openid-configuration",
-		token_endpoint:
-			"https://vue3-signature-pad.vercel.app/.well-known/openid-configuration",
-		jwks_uri:
-			"https://vue3-signature-pad.vercel.app/.well-known/openid-configuration",
+		jwks_uri: "https://vue3-signature-pad.vercel.app/.well-known/jwks.json",
 		response_types_supported: ["none"],
 		subject_types_supported: ["public"],
 		id_token_signing_alg_values_supported: ["none"],

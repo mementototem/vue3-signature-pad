@@ -17,8 +17,8 @@ export const GET = () => {
 				],
 				status: [
 					{
-						href: "https://vue3-signature-pad.vercel.app/sitemap.xml",
-						type: "application/xml",
+						href: "https://vue3-signature-pad.vercel.app/.well-known/api-catalog.json",
+						type: "application/linkset+json",
 					},
 				],
 			},
