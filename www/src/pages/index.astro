@@ -3,13 +3,13 @@ import Layout from "../layouts/default.astro";
 import SignaturePadComponent from "../components/ui/signature-pad-component.vue";
 import { SpeedDialMenuComponent } from "../components/ui/speed-dial-menu.tsx";
 import {
-	typesSnippet,
-	localImportSnippet,
-	usageSnippet,
-	nuxiSnippet,
-	installCmd,
+    typesSnippet,
+    localImportSnippet,
+    usageSnippet,
+    nuxiSnippet,
+    installCmd,
 } from "../snippets";
-import CustomCodeBlock from "../components/ui/custom-code-block.vue";
+import CustomCodeBlock from "../components/ui/custom-code-block.astro";
 import TwitterIcon from "../icons/twitter-icon.vue";
 import GithubIcon from "../icons/github-icon.vue";
 import UIContainer from "../components/ui/ui-container.astro";
@@ -34,7 +34,7 @@ import UIContainer from "../components/ui/ui-container.astro";
 
         <div class="pt-3 flex flex-col space-y-2">
             <h1 class="font-normal text-lg">Installation</h1>
-            <CustomCodeBlock client:only="vue" lang="bash" code={installCmd} />
+            <CustomCodeBlock lang="bash" code={installCmd} />
         </div>
 
         <UIContainer>
@@ -45,16 +45,11 @@ import UIContainer from "../components/ui/ui-container.astro";
                 Register it as a local component as shown below and you are good
                 to go 🎉:
             </p>
-            <CustomCodeBlock
-                client:only="vue"
-                lang="bash"
-                code={localImportSnippet}
-            />
+            <CustomCodeBlock lang="bash" code={localImportSnippet} />
         </UIContainer>
         <UIContainer>
             <h1 class="font-normal text-lg">Usage</h1>
             <CustomCodeBlock
-                client:only="vue"
                 line-numbers={true}
                 lang="vue"
                 code={usageSnippet}
@@ -66,7 +61,7 @@ import UIContainer from "../components/ui/ui-container.astro";
                 If you are using Nuxt 3, you can simply install it by using nuxi
                 as shown below:
             </p>
-            <CustomCodeBlock client:only="vue" lang="bash" code={nuxiSnippet} />
+            <CustomCodeBlock lang="bash" code={nuxiSnippet} />
         </UIContainer>
         <UIContainer>
             <h1 class="font-normal text-lg">Typescript</h1>
@@ -74,7 +69,6 @@ import UIContainer from "../components/ui/ui-container.astro";
                 Below are the types that can be imported from the package:
             </p>
             <CustomCodeBlock
-                client:only="vue"
                 lang="bash"
                 code={`import type { CanvasOptions, Props, WaterMarkObj, ..... } from '@selemondev/vue3-signature-pad'`}
             />
@@ -84,7 +78,6 @@ import UIContainer from "../components/ui/ui-container.astro";
                 If you prefer the full internal schema (advanced):
             </p>
             <CustomCodeBlock
-                client:only="vue"
                 lang="ts"
                 line-numbers={true}
                 code={typesSnippet}
