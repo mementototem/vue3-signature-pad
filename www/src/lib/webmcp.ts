@@ -82,7 +82,8 @@ export function initializeWebMCP() {
 							framework: {
 								type: "string",
 								enum: ["vue3", "nuxt3"],
-								description: "The framework to get installation instructions for",
+								description:
+									"The framework to get installation instructions for",
 							},
 						},
 					},
