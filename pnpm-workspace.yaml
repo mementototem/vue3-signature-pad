@@ -1,3 +1,7 @@
 packages:
   - www
   - src
+allowBuilds:
+  esbuild: true
+  sharp: true
+  vue-demi: true

@@ -3,10 +3,22 @@ export const GET = () => {
 		linkset: [
 			{
 				anchor: "https://vue3-signature-pad.vercel.app/",
-				describedby: [
+				"service-desc": [
 					{
 						href: "https://github.com/selemondev/vue3-signature-pad",
 						type: "text/html",
+					},
+				],
+				"service-doc": [
+					{
+						href: "https://vue3-signature-pad.vercel.app/",
+						type: "text/html",
+					},
+				],
+				status: [
+					{
+						href: "https://vue3-signature-pad.vercel.app/.well-known/api-catalog.json",
+						type: "application/linkset+json",
 					},
 				],
 			},

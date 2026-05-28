@@ -1,0 +1,30 @@
+; DNS-AID (DNS for AI Discovery) Zone Records
+; Reference: https://datatracker.ietf.org/doc/draft-mozleywilliams-dnsop-dnsaid/
+; Reference: https://www.rfc-editor.org/rfc/rfc9460
+;
+; These SVCB/HTTPS records should be published in the DNS zone for
+; vue3-signature-pad.vercel.app to enable DNS-based agent discovery.
+;
+; Note: Since this site is hosted on Vercel, DNS records must be configured
+; through the Vercel dashboard or domain registrar DNS settings.
+
+; Agent discovery index endpoint
+_index._agents.vue3-signature-pad.vercel.app. 3600 IN HTTPS 1 vue3-signature-pad.vercel.app. (
+    alpn="h2,h3"
+    port=443
+    path="/.well-known/agent-skills/index.json"
+)
+
+; A2A (Agent-to-Agent) discovery
+_a2a._agents.vue3-signature-pad.vercel.app. 3600 IN HTTPS 1 vue3-signature-pad.vercel.app. (
+    alpn="h2,h3"
+    port=443
+    path="/.well-known/api-catalog.json"
+)
+
+; MCP server card discovery
+_mcp._agents.vue3-signature-pad.vercel.app. 3600 IN HTTPS 1 vue3-signature-pad.vercel.app. (
+    alpn="h2,h3"
+    port=443
+    path="/.well-known/mcp/server-card.json"
+)
